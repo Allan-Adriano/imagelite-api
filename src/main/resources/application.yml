@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5440/imagelite
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
