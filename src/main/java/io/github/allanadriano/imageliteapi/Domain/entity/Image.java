@@ -1,0 +1,44 @@
+package io.github.allanadriano.imageliteapi.Domain.entity;
+
+import io.github.allanadriano.imageliteapi.Domain.enums.ImageExtension;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+
+@Entity
+@Table
+@EntityListeners(AuditingEntityListener.class)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Image {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+
+    @Column
+    private String name;
+
+    @Column
+    private Long size;
+
+    @Enumerated(EnumType.STRING)
+    private ImageExtension extension;
+
+    @Column
+    @CreatedDate
+    private LocalDateTime uploadDate;
+
+    @Column
+    private String tags;
+
+    @Column
+    @Lob //informa que vai ser um arquivo
+    private byte[] file;
+}
