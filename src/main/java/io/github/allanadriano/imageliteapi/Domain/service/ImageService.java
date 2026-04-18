@@ -2,7 +2,11 @@ package io.github.allanadriano.imageliteapi.Domain.service;
 
 import io.github.allanadriano.imageliteapi.Domain.entity.Image;
 
+import java.util.Optional;
+
 public interface ImageService {
 
     Image save(Image image);
+
+    Optional<Image> getById(String id);
 }
