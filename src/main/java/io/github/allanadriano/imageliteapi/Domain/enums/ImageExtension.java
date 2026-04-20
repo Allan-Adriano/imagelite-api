@@ -18,8 +18,13 @@ public enum ImageExtension {
         this.mediaType = mediaType;
     }
 
-    //Filtra o tipo da imagem e v
+    //Filtra o tipo da imagem
     public static ImageExtension valueOf(MediaType mediaType){
         return Arrays.stream(values()).filter(ie -> ie.mediaType.equals(mediaType)).findFirst().orElse(null);
+    }
+
+
+    public static ImageExtension ofName(String name){
+        return Arrays.stream(values()).filter(ie -> ie.name().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 }
